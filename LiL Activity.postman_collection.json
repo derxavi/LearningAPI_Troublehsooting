@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "522a7edd-301e-43d2-a42e-e5e2c9c39ac2",
+		"name": "LiL Activity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Course Activity Detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer TokenGoesHere",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.linkedin.com/v2/learningActivityReports?aggregationCriteria.primary=INDIVIDUAL&aggregationCriteria.secondary=CONTENT&q=criteria&start=0&count=1000&contentSource=EXTERNAL&assetType=COURSE&timeOffset.duration=1&timeOffset.unit=WEEK&startedAt=1610236800000",
+					"protocol": "https",
+					"host": [
+						"api",
+						"linkedin",
+						"com"
+					],
+					"path": [
+						"v2",
+						"learningActivityReports"
+					],
+					"query": [
+						{
+							"key": "aggregationCriteria.primary",
+							"value": "INDIVIDUAL"
+						},
+						{
+							"key": "aggregationCriteria.secondary",
+							"value": "CONTENT"
+						},
+						{
+							"key": "q",
+							"value": "criteria"
+						},
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "count",
+							"value": "1000"
+						},
+						{
+							"key": "contentSource",
+							"value": "EXTERNAL"
+						},
+						{
+							"key": "assetType",
+							"value": "COURSE"
+						},
+						{
+							"key": "timeOffset.duration",
+							"value": "1"
+						},
+						{
+							"key": "timeOffset.unit",
+							"value": "WEEK"
+						},
+						{
+							"key": "startedAt",
+							"value": "1610236800000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

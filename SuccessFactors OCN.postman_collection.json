@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "d8fd3825-d35e-4797-b0d2-19857b533049",
+		"name": "SuccessFactors OCN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OAuth 2.0 Admin Token Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n   \"client_id\": \"clientId\",\n   \"client_secret\": \"SECRET\",\n   \"grant_type\":\"client_credentials\",\n   \"scope\": {\n      \"userId\":\"LILADMIN\",\n      \"companyId\":\"clientID\",\n      \"userType\":\"admin\",\n      \"resourceType\":\"learning_public_api\"\n   }\n}"
+				},
+				"url": {
+					"raw": "https://<SF Hostname>/learning/oauth-api/rest/v1/token",
+					"protocol": "https",
+					"host": [
+						"<SF Hostname>"
+					],
+					"path": [
+						"learning",
+						"oauth-api",
+						"rest",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course Completion [OLD Treatment]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-RestLi-Protocol-Version",
+						"value": "2.0.0",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <Token from token request>"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userID\": \"<A sample Learner's SF ID aka SSO token>\",\n    \"courseID\": \"urn:li:lyndaCourse:503\",\n    \"providerID\": \"LINKEDINLEARNING\",\n    \"courseCompleted\": \"true\",\n    \"completedTimestamp\": \"1610098134000\",\n    \"instructorName\": \"Michael Scott\",\n    \"grade\": \"A+\",\n    \"totalHours\": \"1\",\n    \"creditHours\": \"1\",\n    \"contactHours\": \"1\",\n    \"cpeHours\": \"0\"\n}"
+				},
+				"url": {
+					"raw": "https://<SF Hostname>/learning/public-api/rest/v1/current-user/item/learning-event",
+					"protocol": "https",
+					"host": [
+						"<SF Hostname>"
+					],
+					"path": [
+						"learning",
+						"public-api",
+						"rest",
+						"v1",
+						"current-user",
+						"item",
+						"learning-event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Course Completion [NEW Treatment]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-RestLi-Protocol-Version",
+						"value": "2.0.0",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer TokenGoesHere"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userID\": \"UserID\",\n    \"courseID\": \"urn:li:lyndaCourse:563464\",\n    \"providerID\": \"LINKEDINLEARNING\",\n    \"courseCompleted\": true,\n    \"completedTimestamp\": 1576676627000,\n    \"instructorName\": \"Michael Scott\",\n    \"grade\": \"A+\",\n    \"totalHours\": 1,\n    \"creditHours\": 1,\n    \"contactHours\": 1,\n    \"cpeHours\": 1\n}"
+				},
+				"url": {
+					"raw": "https://<SF Hostname>/learning/odatav4/public/admin/learningevent-service/v1/OCNLearningEvents",
+					"protocol": "https",
+					"host": [
+						"<SF Hostname>"
+					],
+					"path": [
+						"learning",
+						"odatav4",
+						"public",
+						"admin",
+						"learningevent-service",
+						"v1",
+						"OCNLearningEvents"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

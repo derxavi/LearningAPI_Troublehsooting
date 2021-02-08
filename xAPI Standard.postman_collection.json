@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "5d773a5c-10e3-4179-9b2d-4bb06c111b8f",
+		"name": "xAPI Standard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "xAPI token Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "ClientID",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "Secret",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "xapi:write",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://TokenURL/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"TokenURL"
+					],
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xAPI token Request [CSOD]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "clientID",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "Secret",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "all",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://clientID.csod.com/services/api/oauth2/token",
+					"protocol": "https",
+					"host": [
+						"clientID",
+						"csod",
+						"com"
+					],
+					"path": [
+						"services",
+						"api",
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "6c7fdeb1-8aeb-4b93-99c1-90f5d2530e21",
+		"name": "AICC Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Adobe PutParam",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://captivateprimelrClient.adobe.com/api/aicc/v1/?session_id=418ee653-59e1-4c44-826f-f0c1a0954a9e1&version=4.0&command=GetParam",
+					"protocol": "https",
+					"host": [
+						"captivateprimelrClient",
+						"adobe",
+						"com"
+					],
+					"path": [
+						"",
+						"api",
+						"aicc",
+						"v1",
+						""
+					],
+					"query": [
+						{
+							"key": "session_id",
+							"value": "418ee653-59e1-4c44-826f-f0c1a0954a9e1"
+						},
+						{
+							"key": "version",
+							"value": "4.0"
+						},
+						{
+							"key": "command",
+							"value": "GetParam"
+						}
+					]
+				},
+				"description": "POSTs a PutParam to update score"
+			},
+			"response": []
+		},
+		{
+			"name": "Moodle PutParam",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://demo.moodle.net/mod/scorm/aicc.php?command=PutParam&version=4.0&session_id=SessionID&AICC_Data=%5BCore%5D%0D%0ALesson_Location%3Durn%3Ali%3AlyndaVideo%3A%28urn%3Ali%3AlyndaCourse%3A580635%2C643687%29%0D%0ALesson_Status%3DIncomplete%0D%0AScore%3D63%0D%0ATime%3D0000%3A00%3A35.27%0D%0A%5BCore_Lesson%5D%0D%0A, AiccSession: urn:li:learningAiccSessionV2:(urn:li:enterpriseProfile:(urn:li:enterpriseAccount:<AccountID,InstanceID>),urn:li:lyndaCourse:580635,1511908) ",
+					"protocol": "https",
+					"host": [
+						"demo",
+						"moodle",
+						"net"
+					],
+					"path": [
+						"mod",
+						"scorm",
+						"aicc.php"
+					],
+					"query": [
+						{
+							"key": "command",
+							"value": "PutParam"
+						},
+						{
+							"key": "version",
+							"value": "4.0"
+						},
+						{
+							"key": "session_id",
+							"value": "SessionID"
+						},
+						{
+							"key": "AICC_Data",
+							"value": "%5BCore%5D%0D%0ALesson_Location%3Durn%3Ali%3AlyndaVideo%3A%28urn%3Ali%3AlyndaCourse%3A580635%2C643687%29%0D%0ALesson_Status%3DIncomplete%0D%0AScore%3D63%0D%0ATime%3D0000%3A00%3A35.27%0D%0A%5BCore_Lesson%5D%0D%0A, AiccSession: urn:li:learningAiccSessionV2:(urn:li:enterpriseProfile:(urn:li:enterpriseAccount:<AccountID,InstanceID>),urn:li:lyndaCourse:580635,1511908) "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ScormCloud PutParam",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://cloud.scorm.com/ScormEngineInterface/ProcessAiccRequest.jsp?command=PutParam&version=4.0&session_id=SessionID&AICC_Data=%5BCore%5D%0D%0ALesson_Location%3Durn%3Ali%3AlyndaVideo%3A%28urn%3Ali%3AlyndaCourse%3A580635%2C643687%29%0D%0ALesson_Status%3DIncomplete%0D%0AScore%3D63%0D%0ATime%3D0000%3A00%3A35.27%0D%0A%5BCore_Lesson%5D%0D%0A, AiccSession: urn:li:learningAiccSessionV2:(urn:li:enterpriseProfile:(urn:li:enterpriseAccount:<AccountID,InstanceID>),urn:li:lyndaCourse:580635,1511908) ",
+					"protocol": "https",
+					"host": [
+						"cloud",
+						"scorm",
+						"com"
+					],
+					"path": [
+						"ScormEngineInterface",
+						"ProcessAiccRequest.jsp"
+					],
+					"query": [
+						{
+							"key": "command",
+							"value": "PutParam"
+						},
+						{
+							"key": "version",
+							"value": "4.0"
+						},
+						{
+							"key": "session_id",
+							"value": "SessionID"
+						},
+						{
+							"key": "AICC_Data",
+							"value": "%5BCore%5D%0D%0ALesson_Location%3Durn%3Ali%3AlyndaVideo%3A%28urn%3Ali%3AlyndaCourse%3A580635%2C643687%29%0D%0ALesson_Status%3DIncomplete%0D%0AScore%3D63%0D%0ATime%3D0000%3A00%3A35.27%0D%0A%5BCore_Lesson%5D%0D%0A, AiccSession: urn:li:learningAiccSessionV2:(urn:li:enterpriseProfile:(urn:li:enterpriseAccount:<AccountID,InstanceID>),urn:li:lyndaCourse:580635,1511908) "
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,527 @@
+{
+	"info": {
+		"_postman_id": "f4d46297-cf89-4376-8632-8d6f9a0089ba",
+		"name": "LiL Content",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://www.linkedin.com/oauth/v2/accessToken?grant_type=client_credentials&client_id=ClientID&client_secret=ClientSecret",
+					"protocol": "https",
+					"host": [
+						"www",
+						"linkedin",
+						"com"
+					],
+					"path": [
+						"oauth",
+						"v2",
+						"accessToken"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						},
+						{
+							"key": "client_id",
+							"value": "ClientID"
+						},
+						{
+							"key": "client_secret",
+							"value": "ClientSecret"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Individual Learning Object",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": " Bearer TokenGoesHere",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.linkedin.com/v2/learningAssets/urn:li:lyndaCourse:2841048?fields=urn,title:(value), details:(lastUpdatedAt, publishedAt, urls)&includeRetired=true",
+					"protocol": "https",
+					"host": [
+						"api",
+						"linkedin",
+						"com"
+					],
+					"path": [
+						"v2",
+						"learningAssets",
+						"urn:li:lyndaCourse:2841048"
+					],
+					"query": [
+						{
+							"key": "fields",
+							"value": "urn,title:(value), details:(lastUpdatedAt, publishedAt, urls)"
+						},
+						{
+							"key": "includeRetired",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criteria Finder API [AssetType]",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer tokenGoesHere",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.linkedin.com/v2/learningAssets?q=criteria&assetRetrievalCriteria.includeRetired=true&assetRetrievalCriteria.expandDepth=1&count=1&assetFilteringCriteria.licensedOnly=true&assetPresentationCriteria.sortBy=RECENCY&fields=title:(value),type,details:(lastUpdatedAt,publishedAt,retiredAt,availability,level,description,timeToComplete,urls,availableLocales,contributors,images,classifications:(associatedClassification:(urn,name:(value),type))),urn&assetFilteringCriteria.assetTypes[0]=COURSE&assetFilteringCriteria.lastModifiedAfter=946684800000&assetFilteringCriteria.lastModifiedBefore=1597881600000&start=0&assetFilteringCriteria.locales[0].language=en&assetFilteringCriteria.locales[0].country=US",
+					"protocol": "https",
+					"host": [
+						"api",
+						"linkedin",
+						"com"
+					],
+					"path": [
+						"v2",
+						"learningAssets"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "criteria"
+						},
+						{
+							"key": "assetRetrievalCriteria.includeRetired",
+							"value": "true",
+							"description": "Whether to include retired learning assets."
+						},
+						{
+							"key": "assetRetrievalCriteria.expandDepth",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "1"
+						},
+						{
+							"key": "assetFilteringCriteria.licensedOnly",
+							"value": "true"
+						},
+						{
+							"key": "assetPresentationCriteria.sortBy",
+							"value": "RECENCY"
+						},
+						{
+							"key": "fields",
+							"value": "title:(value),type,details:(lastUpdatedAt,publishedAt,retiredAt,availability,level,description,timeToComplete,urls,availableLocales,contributors,images,classifications:(associatedClassification:(urn,name:(value),type))),urn"
+						},
+						{
+							"key": "assetFilteringCriteria.assetTypes[0]",
+							"value": "COURSE",
+							"description": "COURSE, LEARNING_PATH, or VIDEO"
+						},
+						{
+							"key": "assetFilteringCriteria.classifications[0]",
+							"value": "urn:li:lyndaCategory:7164",
+							"disabled": true
+						},
+						{
+							"key": "assetFilteringCriteria.difficultyLevels[0]",
+							"value": "INTERMEDIATE",
+							"disabled": true
+						},
+						{
+							"key": "assetFilteringCriteria.lastModifiedAfter",
+							"value": "946684800000",
+							"description": "Below timestamp when course got last Updated"
+						},
+						{
+							"key": "assetFilteringCriteria.lastModifiedBefore",
+							"value": "1597881600000",
+							"description": "Above limit timestamp"
+						},
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "assetFilteringCriteria.locales[0].language",
+							"value": "en",
+							"description": "Array of languages"
+						},
+						{
+							"key": "assetFilteringCriteria.locales[0].country",
+							"value": "US",
+							"description": "Array of countries, needs to combine with languages"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criteria Finder API [Keyword]",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer tokenGoesHere",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.linkedin.com/v2/learningAssets?q=criteria&assetFilteringCriteria.keyword=Android%26%26Development&assetFilteringCriteria.assetTypes[0]=COURSE&assetFilteringCriteria.assetTypes[1]=LEARNING_PATH&assetPresentationCriteria.sortBy=RELEVANCE&count=1&fields=urn,title:(value)\n",
+					"protocol": "https",
+					"host": [
+						"api",
+						"linkedin",
+						"com"
+					],
+					"path": [
+						"v2",
+						"learningAssets"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "criteria"
+						},
+						{
+							"key": "assetFilteringCriteria.keyword",
+							"value": "Android%26%26Development",
+							"description": "Keyword for Searching the catalogue"
+						},
+						{
+							"key": "assetFilteringCriteria.assetTypes[0]",
+							"value": "COURSE",
+							"description": "array of COURSE, LEARNING_PATH, or VIDEO"
+						},
+						{
+							"key": "assetFilteringCriteria.assetTypes[1]",
+							"value": "LEARNING_PATH"
+						},
+						{
+							"key": "assetPresentationCriteria.sortBy",
+							"value": "RELEVANCE"
+						},
+						{
+							"key": "count",
+							"value": "1"
+						},
+						{
+							"key": "fields",
+							"value": "urn,title:(value)\n"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criteria Finder API [Classifications]",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer TokenGoesHere",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.linkedin.com/v2/learningAssets?q=criteria&assetFilteringCriteria.classifications[0]=urn:li:lyndaCategory:7164&assetFilteringCriteria.assetTypes[0]=LEARNING_PATH&count=1&fields=urn,title:(value),details:(level, urls:(ssoLaunch),images:(primary),description:(value)),contents:($*:(asset:(contents:($*:(asset:(urn,title:(value),type))))))",
+					"protocol": "https",
+					"host": [
+						"api",
+						"linkedin",
+						"com"
+					],
+					"path": [
+						"v2",
+						"learningAssets"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "criteria"
+						},
+						{
+							"key": "assetFilteringCriteria.classifications[0]",
+							"value": "urn:li:lyndaCategory:7164",
+							"description": "Classifications Array"
+						},
+						{
+							"key": "assetFilteringCriteria.assetTypes[0]",
+							"value": "LEARNING_PATH"
+						},
+						{
+							"key": "count",
+							"value": "1"
+						},
+						{
+							"key": "fields",
+							"value": "urn,title:(value),details:(level, urls:(ssoLaunch),images:(primary),description:(value)),contents:($*:(asset:(contents:($*:(asset:(urn,title:(value),type))))))"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Locale & AssetType [learningAssets]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Recursive function that will call all of the pages\r",
+							"\r",
+							"try {\r",
+							"    var jsonData = pm.response.json();\r",
+							"  //var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"  //The above commented code is my attempt to alter the original example \r",
+							"  //in the hopes of a solution.\r",
+							"\r",
+							"  postman.setNextRequest(jsonData.next_page);\r",
+							"\r",
+							"} catch (e) {\r",
+							"  console.log('Error parsing JSON', e);\r",
+							"  postman.setNextRequest(null);\r",
+							"}\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"function callMyRequest(nextUrl) {\r",
+							"    pm.sendRequest({\r",
+							"        url: nextUrl,\r",
+							"        method: 'GET'\r",
+							"    }, function (err, res) {\r",
+							"        if (err) {\r",
+							"            console.log(err)\r",
+							"        } else {\r",
+							"            // Basic tests about the response (res)\r",
+							"            pm.test(\"Response code is 200\", function() {\r",
+							"                pm.expect(res).to.have.property('code', 200);\r",
+							"            });\r",
+							"\r",
+							"            pm.test(\"Response status is OK\", function() {\r",
+							"                pm.expect(res).to.have.property('status', 'OK');\r",
+							"            });\r",
+							"\r",
+							"            pm.test(\"Response Body is not empty\", function () {\r",
+							"                pm.expect(res.json()).to.not.be.empty;\r",
+							"            });\r",
+							"\r",
+							"            // Check for the next page\r",
+							"            if (res.json().next_page !== null) {\r",
+							"                callMyRequest(res.json().next_page);\r",
+							"            } else {\r",
+							"                // Stop iterations\r",
+							"                postman.setNextRequest(null);\r",
+							"            }\r",
+							"        }\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": " Bearer TokenGoesHere",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.linkedin.com/v2/learningClassifications?q=localeAndType&assetType=COURSE&sourceLocale.language=en&sourceLocale.country=US&start=0&fields=name:(value)&count=1",
+					"protocol": "https",
+					"host": [
+						"api",
+						"linkedin",
+						"com"
+					],
+					"path": [
+						"v2",
+						"learningClassifications"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "localeAndType"
+						},
+						{
+							"key": "assetType",
+							"value": "COURSE",
+							"description": "COURSE, LEARNING_PATH, or VIDEO"
+						},
+						{
+							"key": "sourceLocale.language",
+							"value": "en"
+						},
+						{
+							"key": "sourceLocale.country",
+							"value": "US"
+						},
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "fields",
+							"value": "name:(value)"
+						},
+						{
+							"key": "count",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Locale & AssetType [learningClassifications]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Recursive function that will call all of the pages\r",
+							"\r",
+							"try {\r",
+							"    var jsonData = pm.response.json();\r",
+							"  //var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"  //The above commented code is my attempt to alter the original example \r",
+							"  //in the hopes of a solution.\r",
+							"\r",
+							"  postman.setNextRequest(jsonData.next_page);\r",
+							"\r",
+							"} catch (e) {\r",
+							"  console.log('Error parsing JSON', e);\r",
+							"  postman.setNextRequest(null);\r",
+							"}\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"function callMyRequest(nextUrl) {\r",
+							"    pm.sendRequest({\r",
+							"        url: nextUrl,\r",
+							"        method: 'GET'\r",
+							"    }, function (err, res) {\r",
+							"        if (err) {\r",
+							"            console.log(err)\r",
+							"        } else {\r",
+							"            // Basic tests about the response (res)\r",
+							"            pm.test(\"Response code is 200\", function() {\r",
+							"                pm.expect(res).to.have.property('code', 200);\r",
+							"            });\r",
+							"\r",
+							"            pm.test(\"Response status is OK\", function() {\r",
+							"                pm.expect(res).to.have.property('status', 'OK');\r",
+							"            });\r",
+							"\r",
+							"            pm.test(\"Response Body is not empty\", function () {\r",
+							"                pm.expect(res.json()).to.not.be.empty;\r",
+							"            });\r",
+							"\r",
+							"            // Check for the next page\r",
+							"            if (res.json().next_page !== null) {\r",
+							"                callMyRequest(res.json().next_page);\r",
+							"            } else {\r",
+							"                // Stop iterations\r",
+							"                postman.setNextRequest(null);\r",
+							"            }\r",
+							"        }\r",
+							"    });\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": " Bearer TokenGoesHere",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.linkedin.com/v2/learningClassifications?q=localeAndType&type=TOPIC&sourceLocale.language=en&sourceLocale.country=US&start=0&fields=name:(value)&count=100",
+					"protocol": "https",
+					"host": [
+						"api",
+						"linkedin",
+						"com"
+					],
+					"path": [
+						"v2",
+						"learningClassifications"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "localeAndType"
+						},
+						{
+							"key": "type",
+							"value": "TOPIC",
+							"description": "LIBRARY, SUBJECT, or TOPIC"
+						},
+						{
+							"key": "sourceLocale.language",
+							"value": "en"
+						},
+						{
+							"key": "sourceLocale.country",
+							"value": "US"
+						},
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "fields",
+							"value": "name:(value)"
+						},
+						{
+							"key": "count",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

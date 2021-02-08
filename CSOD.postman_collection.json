@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "a702b669-5a4f-4ea9-90f4-61be6294d22f",
+		"name": "CSOD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CSOD call to Criteria Finder API",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.linkedin.com/v2/learningAssets?fields=title:(value),type,details:(lastUpdatedAt,publishedAt,retiredAt,availability,level,description,timeToComplete,urls,availableLocales,contributors,images,classifications:(associatedClassification:(urn,name:(value),type))),urn&q=criteria&assetFilteringCriteria.assetTypes%5b0%5d=COURSE&assetRetrievalCriteria.includeRetired=true&assetRetrievalCriteria.expandDepth=1&count=100&start=200&assetFilteringCriteria.lastModifiedAfter=1598749021171&assetFilteringCriteria.licensedOnly=true&assetPresentationCriteria.sortBy=RECENCY",
+					"protocol": "http",
+					"host": [
+						"api",
+						"linkedin",
+						"com"
+					],
+					"path": [
+						"v2",
+						"learningAssets"
+					],
+					"query": [
+						{
+							"key": "fields",
+							"value": "title:(value),type,details:(lastUpdatedAt,publishedAt,retiredAt,availability,level,description,timeToComplete,urls,availableLocales,contributors,images,classifications:(associatedClassification:(urn,name:(value),type))),urn"
+						},
+						{
+							"key": "q",
+							"value": "criteria"
+						},
+						{
+							"key": "assetFilteringCriteria.assetTypes%5b0%5d",
+							"value": "COURSE"
+						},
+						{
+							"key": "assetRetrievalCriteria.includeRetired",
+							"value": "true"
+						},
+						{
+							"key": "assetRetrievalCriteria.expandDepth",
+							"value": "1"
+						},
+						{
+							"key": "count",
+							"value": "100"
+						},
+						{
+							"key": "start",
+							"value": "200"
+						},
+						{
+							"key": "assetFilteringCriteria.lastModifiedAfter",
+							"value": "1598749021171"
+						},
+						{
+							"key": "assetFilteringCriteria.licensedOnly",
+							"value": "true"
+						},
+						{
+							"key": "assetPresentationCriteria.sortBy",
+							"value": "RECENCY"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
